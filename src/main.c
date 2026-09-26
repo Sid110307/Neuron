@@ -99,7 +99,7 @@ int main()
 
     forward(input, hidden, output, inputWeights, hiddenWeights);
     for (int i = 0; i < OUTPUT_SIZE; ++i)
-        printf("%i: %f -> %f (%.2f%% accuracy)\n", i, input[i], output[i], output[i] * 100.0);
+        printf("%i: %f -> %f (%.2f%% accuracy)\n", i, input[i], output[i], (double) (1.0 - fabs(target[i] - output[i])) * 100.0);
 
     return EXIT_SUCCESS;
 }

@@ -1,4 +1,4 @@
-CC=clang
+CC?=cc
 EXECUTABLE_DIR=bin
 
 CFLAGS=-std=c11 -Wall -Wextra
@@ -16,7 +16,7 @@ bin/%.o: src/%.c
 neuron: $(OBJECTS)
 	mkdir -p $(EXECUTABLE_DIR)
 	$(CC) $(CFLAGS) -o $(EXECUTABLE_DIR)/$@ $^ $(LIBS)
-	sudo ./$(EXECUTABLE_DIR)/$@
+	./$(EXECUTABLE_DIR)/$@
 
 clean:
 	rm -rf $(EXECUTABLE_DIR)
